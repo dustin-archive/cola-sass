@@ -1,0 +1,7 @@
+@function cola-length($value) {
+  @if type-of($value) == string {
+    @return str-length($value);
+  }
+
+  @return length($value);
+}

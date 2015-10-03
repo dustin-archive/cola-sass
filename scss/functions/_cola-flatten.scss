@@ -1,0 +1,13 @@
+@function cola-flatten($lists) {
+  $result: ();
+
+  @each $list in $lists {
+    $result: join($result, $list);
+  }
+
+  @if cola-contains-types($result, list) {
+    @return cola-flatten($result);
+  }
+
+  @return $result;
+}

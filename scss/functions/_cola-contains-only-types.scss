@@ -1,0 +1,11 @@
+@function cola-contains-only-types($list, $types) {
+  @each $item in $list {
+    $item: cola-type-of($item);
+
+    @if not cola-index($types, $item) {
+      @return null;
+    }
+  }
+
+  @return true;
+}

@@ -1,0 +1,9 @@
+@function cola-map-get-values($map, $keys) {
+  $result: ();
+
+  @each $key in $keys {
+    $result: join($result, map-get($map, $key));
+  }
+
+  @return $result;
+}

@@ -1,0 +1,13 @@
+@import 'variables/cola-nil';
+
+@import 'functions/cola-index';
+@import 'functions/cola-length';
+@import 'functions/cola-map-get-values';
+
+@import 'functions/cola-type-of';             // cola-index
+@import 'functions/cola-types-in';            // cola-type-of
+
+@import 'functions/cola-contains-types';      // cola-index, cola-types-in
+@import 'functions/cola-contains-only-types'; // cola-index, cola-types-in
+
+@import 'functions/cola-flatten';             // cola-contains-types

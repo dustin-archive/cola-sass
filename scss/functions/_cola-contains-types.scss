@@ -1,0 +1,11 @@
+@function cola-contains-types($list, $types) {
+  $list: cola-types-in($list);
+
+  @each $type in $types {
+    @if cola-index($list, $type) {
+      @return true;
+    }
+  }
+
+  @return null;
+}

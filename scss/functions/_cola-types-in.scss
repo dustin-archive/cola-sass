@@ -1,0 +1,9 @@
+@function cola-types-in($list) {
+  $result: ();
+
+  @each $item in $list {
+    $result: join($result, cola-type-of($item));
+  }
+
+  @return $result;
+}

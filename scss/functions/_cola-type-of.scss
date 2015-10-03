@@ -1,0 +1,25 @@
+@function cola-type-of($value) {
+  $styles: none hidden dotted dashed solid double groove ridge inset outset;
+  $lengths: px em rem vw vh vmin vmax in cm mm pt pc ex ch;
+
+  @if cola-index($styles, $value) {
+    @return style;
+  }
+  @else if cola-index($lengths, $value) {
+    @return length;
+  }
+  @else if cola-index($value, '!') {
+    @return flag;
+  }
+  // @else if cola-index($value, $cola-nil) {
+  //   @return nil;
+  // }
+  @else if cola-length($value) == 0 {
+    @return nil;
+  }
+  @else if $value == null {
+    @return null;
+  }
+
+  @return type-of($value);
+}
