@@ -3,7 +3,7 @@
     $item: cola-type-of($item);
 
     @if not cola-index($types, $item) {
-      @return null;
+      @return false;
     }
   }
 
