@@ -11,3 +11,11 @@
 
   @return $result;
 }
+
+// 1 2 3 4
+// @debug cola-flatten( (1 (2 (3 (4)))) );
+
+// 1 1 2 2 3 3 4 4
+// 1 1 2 2 3 3 4 4
+// @debug cola-flatten( (1: 1, 2: 2,  3: 3, 4: 4) );
+// @debug cola-flatten( (1: 1, 2: 2) (3: 3, 4: 4) );
