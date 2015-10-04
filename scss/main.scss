@@ -1,13 +1,26 @@
-@import 'variables/cola-nil';
+// Kitty
+@import 'variables/cola-kitty';
 
-@import 'functions/cola-index';
-@import 'functions/cola-length';
+// Units
+
+// List data
+@import 'functions/cola-longest-shortest';
+@import 'functions/cola-largest-smallest';
+
+// Lists
+@import 'functions/cola-list-get';
+@import 'functions/cola-list-get-nested';
+@import 'functions/cola-list-set';
+
+@import 'functions/cola-process-nested-lists'; // cola-list-set
+@import 'functions/cola-type-of';              // cola-process-nested-lists
+@import 'functions/cola-strip-unit';
+
 @import 'functions/cola-map-get-values';
 
-@import 'functions/cola-type-of';             // cola-index
-@import 'functions/cola-types-in';            // cola-type-of
+@import 'functions/cola-join';
 
-@import 'functions/cola-contains-types';      // cola-index, cola-types-in
-@import 'functions/cola-contains-only-types'; // cola-index, cola-types-in
+@import 'functions/cola-contains-types';      // cola-types-of
+@import 'functions/cola-contains-only-types'; // cola-types-of
 
 @import 'functions/cola-flatten';             // cola-contains-types
