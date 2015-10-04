@@ -2,20 +2,16 @@
   $styles: none hidden dotted dashed solid double groove ridge inset outset;
   $lengths: px em rem vw vh vmin vmax in cm mm pt pc ex ch;
 
-  @if cola-index($styles, $value) {
-    @return style;
-  }
-  @else if cola-index($lengths, $value) {
-    @return length;
-  }
-  @else if cola-index($value, '!') {
-    @return flag;
-  }
-  // @else if cola-index($value, $cola-nil) {
-  //   @return nil;
-  // }
-  @else if cola-length($value) == 0 {
-    @return nil;
+  @if type-of($value) == string {
+    @if index($styles, $value) {
+      @return style;
+    }
+    @else if index($lengths, $value) {
+      @return length;
+    }
+    @else if str-index($value, '!') {
+      @return flag;
+    }
   }
   @else if $value == null {
     @return null;
@@ -23,3 +19,47 @@
 
   @return type-of($value);
 }
+
+// style
+// @debug cola-type-of(solid);
+
+// length
+// @debug cola-type-of(px);
+
+// flag
+// @debug cola-type-of(!important);
+
+// null
+// @debug cola-type-of(null);
+
+
+
+
+// @function cola-types-in($list) {
+//   $result: ();
+//
+//   @each $item in $list {
+//     $result: join($result, cola-type-of($item));
+//   }
+//
+//   @return $result;
+// }
+
+// the function above is basically usless now that i have process-nested-lists
+// i just need to decide what to name the new function and how to organize it
+
+// should i merge these? or have two seperate ones?
+// cola-type-of
+// cola-type-of-recursive
+// cola-types-in
+
+// there's an loop of functions being called.... so this is broken
+@function cola-types-in($list) {
+  @return cola-process-nested-lists('cola-type-of', $list);
+}
+
+// $test-list: 1 2 3 (4 5 6 (7 8 9));
+// @debug cola-types-in($test-list);
+
+// $test-list: string string red (4 blue 6 (7 green 9));
+// @debug cola-types-in($test-list);
