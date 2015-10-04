@@ -1,0 +1,35 @@
+@function cola-list-set($list, $index, $value) {
+  $result: ();
+  $length: length($list);
+  $largest: if($length > $index, $length, $index);
+
+  // @for $i from 1 through largest($length $index) { // removed `largest` to break import chain
+  @for $i from 1 through $largest {
+    @if $i == $index {
+      $result: append($result, $value);
+    }
+    @else if $i <= $length {
+      $result: join($result, nth($list, $i));
+    }
+    @else {
+      $result: join($result, null);
+    }
+  }
+
+  @return $result;
+}
+
+// 1 2 3 null null '~(=^ • ⍵•^)='
+// @debug cola-list(1 2 3, 6, $cola-kitty);
+
+// 1 '~(=^ • ⍵•^)=' 3
+// @debug cola-list(1 2 3, 2, $cola-kitty);
+
+// '~(=^ • ⍵•^)='
+// '~(=^ • ⍵•^)='
+// $empty-list: ();
+// @debug join($empty-list, $cola-kitty);
+// @debug cola-list($empty-list, 1, $cola-kitty);
+
+// 1 2 3 null null (4 5 6)
+// @debug cola-list(1 2 3, 6, 4 5 6);
