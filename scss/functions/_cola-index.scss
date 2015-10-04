@@ -1,7 +1,0 @@
-@function cola-index($value, $argument) {
-  @if type-of($value) == string {
-    @return str-index($value, $argument);
-  }
-
-  @return index($value, $argument);
-}

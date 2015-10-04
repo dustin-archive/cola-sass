@@ -2,7 +2,7 @@
   @each $item in $list {
     $item: cola-type-of($item);
 
-    @if not cola-index($types, $item) {
+    @if not index($types, $item) {
       @return false;
     }
   }

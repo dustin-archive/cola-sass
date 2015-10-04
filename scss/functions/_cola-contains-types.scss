@@ -2,10 +2,16 @@
   $list: cola-types-in($list);
 
   @each $type in $types {
-    @if cola-index($list, $type) {
+    @if index($list, $type) {
       @return true;
     }
   }
 
   @return false;
 }
+
+// true
+// @debug cola-contains-types(blue string 1, number string);
+
+// false
+// @debug cola-contains-types(blue !important solid, number string);
