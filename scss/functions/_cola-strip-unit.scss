@@ -1,0 +1,7 @@
+@function cola-strip-unit($value) {
+  @return $value / (($value * 0) + 1);
+}
+
+@function cola-strip-units($value) {
+  @return cola-process-nested-lists('cola-strip-unit', $value);
+}
