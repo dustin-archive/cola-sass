@@ -1,0 +1,44 @@
+// needs a better name?
+@function cola-largest-smallest($size, $list) {
+  // does it really need to be flattened?
+  // flattening removes possibility of getting indexes
+  // how would you represent a nested index?
+  // 3:2:2 or 3: 2: 2
+  // can't have colons in function arguments... that'd have to be a PostCSS syntax change
+  // 3,2,2 or 3 2 2
+  // i'd have to make a nested list selector function
+  $list: cola-flatten($list);
+  $results: null;
+
+  @each $item in $list {
+    @if $results == null {
+      $results: $item;
+    }
+    @else if $size == 'largest' and $item > $results {
+      $results: $item;
+    }
+    @else if $size == 'smallest' and $item < $results {
+      $results: $item;
+    }
+  }
+
+  @return $results;
+}
+
+@function cola-largest($list) {
+  @return cola-largest-smallest('largest', $list);
+}
+
+@function cola-smallest($list) {
+  @return cola-largest-smallest('smallest', $list);
+}
+
+// 2345
+// -2
+// @debug cola-largest( (55 54 3 2 32) 31 (345 (435 2345)) 345 (42 4 45) 34 );
+// @debug cola-largest( (-55 -54 -3 -2 -32) -31 (-345 (-435 -2345)) -345 (-42 -4 -45) -34 );
+
+// 2
+// -2345
+// @debug cola-smallest( (55 54 3 2 32) 31 (345 (435 2345)) 345 (42 4 45) 34 );
+// @debug cola-smallest( (-55 -54 -3 -2 -32) -31 (-345 (-435 -2345)) -345 (-42 -4 -45) -34 );
