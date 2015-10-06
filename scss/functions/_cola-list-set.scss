@@ -1,10 +1,8 @@
 @function cola-list-set($list, $index, $value) {
   $result: ();
   $length: length($list);
-  $largest: if($length > $index, $length, $index);
 
-  // @for $i from 1 through largest($length $index) { // removed `largest` to break import chain
-  @for $i from 1 through $largest {
+  @for $i from 1 through cola-larger($length, $index) {
     @if $i == $index {
       $result: append($result, $value);
     }
