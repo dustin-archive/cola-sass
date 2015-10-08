@@ -3,10 +3,10 @@
 
   @each $list in $lists {
     $result: join($result, $list);
-  }
 
-  @if cola-contains-types($result, list) {
-    @return cola-flatten($result);
+    @if type-of($list) == list {
+      @return cola-flatten($result);
+    }
   }
 
   @return $result;
