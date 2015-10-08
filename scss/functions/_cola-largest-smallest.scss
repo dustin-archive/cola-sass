@@ -1,22 +1,22 @@
 @function cola-largest-smallest($type, $list) {
-  // does it really need to be flattened?
-  // flattening removes possibility of getting indexes
   $list: cola-flatten($list);
-  $results: null;
+  $result: null;
 
-  @each $item in $list {
-    @if $results == null {
-      $results: $item;
+  @for $i from 1 through length($list) {
+    $value: nth($list, $i);
+
+    @if $result == null
+        or $type == 'largest' and $value > map-get($result, value)
+        or $type == 'smallest' and $value < map-get($result, value) {
+      $result: (value: $value, index: $i);
     }
-    @else if $type == 'largest' and $item > $results {
-      $results: $item;
-    }
-    @else if $type == 'smallest' and $item < $results {
-      $results: $item;
+    @else if $value == map-get($result, value) {
+      $tie: (index: map-get($result, index) $i);
+      $result: map-merge($result, $tie);
     }
   }
 
-  @return $results;
+  @return $result;
 }
 
 @function cola-largest($list) {
@@ -27,12 +27,16 @@
   @return cola-largest-smallest('smallest', $list);
 }
 
-// 2345
-// -2
+// (value: 2345, index: 9)
+// (value: 2345, index: 9 15)
+// (value: -2, index: 4)
 // @debug cola-largest( (55 54 3 2 32) 31 (345 (435 2345)) 345 (42 4 45) 34 );
+// @debug cola-largest( (55 54 3 2 32) 31 (345 (435 2345)) 345 (42 4 45) 34 2345 );
 // @debug cola-largest( (-55 -54 -3 -2 -32) -31 (-345 (-435 -2345)) -345 (-42 -4 -45) -34 );
 
-// 2
-// -2345
+// (value: 2, index: 4)
+// (value: 2, index: 4 15)
+// (value: -2345, index: 9)
 // @debug cola-smallest( (55 54 3 2 32) 31 (345 (435 2345)) 345 (42 4 45) 34 );
+// @debug cola-smallest( (55 54 3 2 32) 31 (345 (435 2345)) 345 (42 4 45) 34 2 );
 // @debug cola-smallest( (-55 -54 -3 -2 -32) -31 (-345 (-435 -2345)) -345 (-42 -4 -45) -34 );
