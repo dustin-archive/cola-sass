@@ -1,12 +1,6 @@
-// needs a better name?
-@function cola-largest-smallest($size, $list) {
+@function cola-largest-smallest($type, $list) {
   // does it really need to be flattened?
   // flattening removes possibility of getting indexes
-  // how would you represent a nested index?
-  // 3:2:2 or 3: 2: 2
-  // can't have colons in function arguments... that'd have to be a PostCSS syntax change
-  // 3,2,2 or 3 2 2
-  // i'd have to make a nested list selector function
   $list: cola-flatten($list);
   $results: null;
 
@@ -14,10 +8,10 @@
     @if $results == null {
       $results: $item;
     }
-    @else if $size == 'largest' and $item > $results {
+    @else if $type == 'largest' and $item > $results {
       $results: $item;
     }
-    @else if $size == 'smallest' and $item < $results {
+    @else if $type == 'smallest' and $item < $results {
       $results: $item;
     }
   }
