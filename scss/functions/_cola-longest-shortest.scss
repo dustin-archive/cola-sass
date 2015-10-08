@@ -31,11 +31,11 @@
 }
 
 // (list: (1 2 3 4), index: 1, length: 4)
-// (list: (1 2 3 4) (1 2 3 4), index: (1, 4), length: 4)
+// (list: (1 2 3 4) (1 2 3 4), index: 1 4, length: 4)
 // @debug cola-longest( (1 2 3 4) (1 (2 3)) (1 2 3) );
 // @debug cola-longest( (1 2 3 4) (1 (2 3)) (1 2 3) (1 2 3 4) );
 
 // (list: (1 2 3 4), index: 2, length: 2)
-// (list: (1 (2 3)) (1 2), index: (2, 4), length: 2)
+// (list: (1 (2 3)) (1 2), index: 2 4, length: 2)
 // @debug cola-shortest( (1 2 3 4) (1 (2 3)) (1 2 3) );
 // @debug cola-shortest( (1 2 3 4) (1 (2 3)) (1 2 3) (1 2) );
