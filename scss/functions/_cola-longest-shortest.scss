@@ -1,37 +1,41 @@
-@function cola-longest-shortest($type, $lists) {
-  $results: null;
+@function cola-longest-shortest($type, $list) {
+  $result: null;
 
-  @for $i from 1 through length($lists) {
-    $list: nth($lists, $i);
-    $length: length($list);
+  @for $i from 1 through length($list) {
+    $item: nth($list, $i);
+    $length: length($item);
 
-    @if $results == null
-        or $type == 'longest' and $length > map-get($results, length)
-        or $type == 'shortest' and $length < map-get($results, length) {
-      $results: (index: $i, length: $length);
+    @if $result == null
+        or $type == 'longest' and $length > map-get($result, length)
+        or $type == 'shortest' and $length < map-get($result, length) {
+      $result: (list: $item, index: $i, length: $length);
     }
-    @else if $length == map-get($results, length) {
-      $results: map-merge($results, (index: join(map-get($results, index), $i, comma)));
+    @else if $length == map-get($result, length) {
+      $tie: (
+        list: map-get($result, list) $item,
+        index: map-get($result, index) $i
+      );
+      $result: map-merge($result, $tie);
     }
   }
 
-  @return $results;
+  @return $result;
 }
 
-@function cola-longest($lists) {
-  @return cola-longest-shortest('longest', $lists);
+@function cola-longest($list) {
+  @return cola-longest-shortest('longest', $list);
 }
 
-@function cola-shortest($lists) {
-  @return cola-longest-shortest('shortest', $lists);
+@function cola-shortest($list) {
+  @return cola-longest-shortest('shortest', $list);
 }
 
-// (index: 1, length: 4)
-// (index: (1, 4), length: 4)
+// (list: (1 2 3 4), index: 1, length: 4)
+// (list: (1 2 3 4) (1 2 3 4), index: (1, 4), length: 4)
 // @debug cola-longest( (1 2 3 4) (1 (2 3)) (1 2 3) );
 // @debug cola-longest( (1 2 3 4) (1 (2 3)) (1 2 3) (1 2 3 4) );
 
-// (index: 2, length: 2)
-// (index: (2, 4), length: 2)
+// (list: (1 2 3 4), index: 2, length: 2)
+// (list: (1 (2 3)) (1 2), index: (2, 4), length: 2)
 // @debug cola-shortest( (1 2 3 4) (1 (2 3)) (1 2 3) );
 // @debug cola-shortest( (1 2 3 4) (1 (2 3)) (1 2 3) (1 2) );
