@@ -1,19 +1,24 @@
 @function cola-flatten($lists) {
   $result: ();
 
-  @each $list in $lists {
-    $result: join($result, $list);
-
-    @if type-of($list) == list {
-      @return cola-flatten($result);
+  @each $item in $lists {
+    @if type-of($item) == list {
+      $result: join($result, cola-flatten($item));
+    }
+    @else {
+      $result: join($result, $item);
     }
   }
 
   @return $result;
 }
 
-// 1 2 3 4
-// @debug cola-flatten( (1 (2 (3 (4)))) );
+// 1 2 3
+// 1 2 3 4 5 6
+// 1 2 3 4 5 6 7 8 9
+// @debug cola-flatten( (1 (2 (3))) );
+// @debug cola-flatten( (1 (2 (3))) (4 (5 (6))) );
+// @debug cola-flatten( (1 (2 (3))) (4 (5 (6))) 7 8 9 );
 
 // 1 1 2 2 3 3 4 4
 // 1 1 2 2 3 3 4 4
