@@ -1,48 +1,29 @@
-// needs a better name?
-@function cola-longest-shortest($size, $lists) {
+@function cola-longest-shortest($type, $lists) {
   $results: null;
 
   @for $i from 1 through length($lists) {
     $list: nth($lists, $i);
     $length: length($list);
 
-    @if $results == null {
+    @if $results == null
+        or $type == 'longest' and $length > map-get($results, length)
+        or $type == 'shortest' and $length < map-get($results, length) {
       $results: (index: $i, length: $length);
     }
-
-    // merge these together better
-    @else if $size == 'longest' {
-      @if $length > map-get($results, length) {
-        $results: (index: $i, length: $length);
-      }
-
-      // these chucnks are identical
-      @else if $length == map-get($results, length) {
-        $results: map-merge($results, (index: join(map-get($results, index), $i, comma)));
-      }
-    }
-
-    @else if $size == 'shortest' {
-      @if $length < map-get($results, length) {
-        $results: (index: $i, length: $length);
-      }
-
-      // these chucnks are identical
-      @else if $length == map-get($results, length) {
-        $results: map-merge($results, (index: join(map-get($results, index), $i, comma)));
-      }
+    @else if $length == map-get($results, length) {
+      $results: map-merge($results, (index: join(map-get($results, index), $i, comma)));
     }
   }
 
   @return $results;
 }
 
-@function cola-longest($list) {
-  @return cola-longest-shortest('longest', $list);
+@function cola-longest($lists) {
+  @return cola-longest-shortest('longest', $lists);
 }
 
-@function cola-shortest($list) {
-  @return cola-longest-shortest('shortest', $list);
+@function cola-shortest($lists) {
+  @return cola-longest-shortest('shortest', $lists);
 }
 
 // (index: 1, length: 4)
