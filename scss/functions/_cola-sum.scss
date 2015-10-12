@@ -10,3 +10,10 @@
 
 // 9
 // @debug cola-sum(3 3 3);
+
+@function cola-sum-nested($list) {
+  @return cola-sum(cola-flatten($list));
+}
+
+// 15
+// @debug cola-sum-nested(3 3 (3 (3 3)));
