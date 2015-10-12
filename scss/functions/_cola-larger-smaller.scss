@@ -1,15 +1,21 @@
-@function cola-larger($one, $two) {
-  @if $one > $two {
+@function cola-larger-smaller($type, $one, $two) {
+  @if $one > $two and $type == 'larger'
+      or $one < $two and $type == 'smaller' {
     @return $one;
   }
 
   @return $two;
+}
+
+@function cola-larger($one, $two) {
+  @return cola-larger-smaller('larger', $one, $two);
 }
 
 @function cola-smaller($one, $two) {
-  @if $one < $two {
-    @return $one;
-  }
-
-  @return $two;
+  @return cola-larger-smaller('smaller', $one, $two);
 }
+
+// 2
+// 1
+// @debug cola-larger(1, 2);
+// @debug cola-smaller(1, 2);
