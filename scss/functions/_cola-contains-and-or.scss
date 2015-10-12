@@ -1,29 +1,21 @@
-@function cola-contains-and-or($type, $list, $items) {
-  @each $item in $items {
-    $index: index($list, $item);
-
-    @if not $index and $type == 'and' {
+@function cola-contains-and($list, $items) {
+  @each $item in $list {
+    @if not index($items, $item) {
       @return false;
     }
-    @else if $index and $type == 'or' {
+  }
+
+  @return true;
+}
+
+@function cola-contains-or($list, $items) {
+  @each $item in $items {
+    @if index($list, $item) {
       @return true;
     }
   }
 
-  @if $type == 'and' {
-    @return true;
-  }
-  @else if $type == 'or' {
-    @return false;
-  }
-}
-
-@function cola-contains-and($list, $items) {
-  @return cola-contains-and-or('and', $list, $items);
-}
-
-@function cola-contains-or($list, $items) {
-  @return cola-contains-and-or('or', $list, $items);
+  @return false;
 }
 
 @function cola-contains-type-and($list, $types) {
@@ -45,9 +37,7 @@
 
 // true
 // false
-// true
 // false
-// @debug cola-contains-type-and(1 2 3 4 blue, number color);
-// @debug cola-contains-type-and(1 2 3 4 blue, number string);
-// @debug cola-contains-type-or(blue string 1, number string);
-// @debug cola-contains-type-or(blue !important solid, number string);
+// @debug cola-contains-type-and(25 25 blue, number color);
+// @debug cola-contains-type-and(25 auto blue, number color);
+// @debug cola-contains-type-and(auto 25 blue, number color);
