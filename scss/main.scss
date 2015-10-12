@@ -1,26 +1,29 @@
-// Kitty
-@import 'variables/cola-kitty';
+// ColaSass Lib
+  @import 'functions/cola-join-append'; // function mod
+  @import 'functions/cola-larger-smaller';
+  @import 'functions/cola-flatten';
 
-// Units
-@import 'functions/cola-strip-unit';
+  // Lists
+  @import 'functions/cola-list-get';        // syntax
+  @import 'functions/cola-list-get-nested'; // syntax
+  @import 'functions/cola-list-set';        // syntax
 
-@import 'functions/cola-join-append'; // function mod
-@import 'functions/cola-larger-smaller';
-@import 'functions/cola-flatten';
+  @import 'functions/cola-process-nested-lists'; // cola-list-set
+    @import 'functions/cola-type-of';            // function mod
+      @import 'functions/cola-types-in';
+      // @import 'functions/cola-contains'; // change types-in to contains?
+      @import 'functions/cola-contains-types';
+      @import 'functions/cola-contains-only-types';
 
-// List data
-@import 'functions/cola-longest-shortest';
-@import 'functions/cola-largest-smallest';
+  @import 'functions/cola-map-get-values'; // syntax
 
-// Lists
-@import 'functions/cola-list-get';        // syntax
-@import 'functions/cola-list-get-nested'; // syntax
-@import 'functions/cola-list-set';        // syntax
+// Caffine Lib?
+  // List data
+  @import 'functions/cola-longest-shortest';
+  @import 'functions/cola-largest-smallest';
 
-@import 'functions/cola-process-nested-lists'; // cola-list-set
-  @import 'functions/cola-type-of';            // function mod
-    @import 'functions/cola-types-in';
-    @import 'functions/cola-contains-types';
-    @import 'functions/cola-contains-only-types';
+  // Units
+  @import 'functions/cola-strip-unit';
 
-@import 'functions/cola-map-get-values'; // syntax
+// Whalemojis Lib?
+  @import 'variables/cola-kitty';
