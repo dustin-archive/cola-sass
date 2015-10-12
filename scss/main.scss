@@ -1,6 +1,10 @@
 // ColaSass Lib
+
+  // Internal (kind of)
+  @import 'functions/cola-null-map-get';
+
   @import 'functions/cola-join-append'; // function mod
-  @import 'functions/cola-larger-smaller';
+  // @import 'functions/cola-larger-smaller';
   @import 'functions/cola-flatten';
 
   // Lists
@@ -18,14 +22,14 @@
 
 // Caffine Lib?
   // List data
-  @import 'functions/cola-longest-shortest';
-  @import 'functions/cola-largest-smallest';
+  @import 'functions/cola-longest-shortest'; // cola-null-map-get
+  @import 'functions/cola-largest-smallest'; // cola-null-map-get
 
   // Units
   @import 'functions/cola-strip-unit';
 
 // Whalemojis Lib?
-  @import 'variables/cola-kitty';
+  // @import 'variables/cola-kitty';
 
 @import 'functions/cola-remove-nth';
 @import 'functions/cola-remove-item';

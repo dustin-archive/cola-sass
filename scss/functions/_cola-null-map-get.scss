@@ -1,0 +1,8 @@
+@function cola-null-map-get($map, $key) {
+  @if $key {
+    @return map-get($map, $key);
+  }
+  @else {
+    @return $map;
+  }
+}

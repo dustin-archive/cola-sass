@@ -24,12 +24,12 @@
   @return $result;
 }
 
-@function cola-largest($list) {
-  @return cola-largest-smallest('largest', $list);
+@function cola-largest($list, $key: null) {
+  @return cola-null-map-get(cola-largest-smallest('largest', $list), $key);
 }
 
-@function cola-smallest($list) {
-  @return cola-largest-smallest('smallest', $list);
+@function cola-smallest($list, $key: null) {
+  @return cola-null-map-get(cola-largest-smallest('smallest', $list), $key);
 }
 
 // (value: 2345, index: 3 2 2)
@@ -45,3 +45,13 @@
 // @debug cola-smallest( (55 54 3 2 32) 31 (345 (435 2345)) 345 (42 4 45) 34 );
 // @debug cola-smallest( (55 54 3 2 32) 31 (345 (435 2345)) 345 (42 4 45) 34 2 );
 // @debug cola-smallest( (-55 -54 -3 -2 -32) -31 (-345 (-435 -2345)) -345 (-42 -4 -45) -34 );
+
+// 300
+// 3
+// @debug cola-largest(100 200 300, value);
+// @debug cola-largest(100 200 300, index);
+
+// 100
+// 1
+// @debug cola-smallest(100 200 300, value);
+// @debug cola-smallest(100 200 300, index);
