@@ -3,5 +3,5 @@
 }
 
 @function cola-strip-units($value) {
-  @return cola-process-nested-lists('cola-strip-unit', $value);
+  @return cola-process-nested-list('cola-strip-unit', $value);
 }

@@ -8,8 +8,8 @@
   @import 'functions/cola-list-get-nested'; // syntax
   @import 'functions/cola-list-set';        // syntax
 
-  @import 'functions/cola-process-nested-lists'; // cola-list-set
-    @import 'functions/cola-type-of';            // function mod
+  @import 'functions/cola-process-nested-list'; // cola-list-set
+    @import 'functions/cola-type-of';           // function mod
       @import 'functions/cola-types-in';
         @import 'functions/cola-contains-or';
         @import 'functions/cola-contains-and';

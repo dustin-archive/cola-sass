@@ -1,0 +1,30 @@
+@function cola-process-nested-list($call, $list) {
+  $result: ();
+
+    @for $i from 1 through length($list) {
+      $item: nth($list, $i);
+
+      // @if type-of($item) == list and $root != 'root' {
+      @if type-of($item) == list {
+        $result: cola-list-set($result, $i, cola-process-nested-list($call, $item));
+      }
+      @else {
+        $item: call($call, $item);
+        $result: append($result, $item);
+      }
+    }
+
+  @return $result;
+}
+
+// add an option for recursive-ness or root-level?
+
+// 1
+// (1x (2x (3x (4x)))) (5x)
+// @debug cola-process-nested-list('cola-strip-unit', 1x);
+// @debug cola-process-nested-list('cola-strip-unit', (1x (2x (3x (4x)))) (5x));
+
+// 1
+// (1 (2 (3 (4)))) (5)
+// @debug cola-process-nested-list('cola-strip-unit', 1);
+// @debug cola-process-nested-list('cola-strip-unit', (1 (2 (3 (4)))) (5));
