@@ -2,7 +2,6 @@
   @if $key {
     @return map-get($map, $key);
   }
-  @else {
-    @return $map;
-  }
+
+  @return $map;
 }
