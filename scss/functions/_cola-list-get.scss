@@ -1,4 +1,4 @@
-@function cola-list-get($indexes, $list) {
+@function cola-list-get($list, $indexes) {
   $result: ();
 
   @each $index in $indexes {
@@ -10,7 +10,7 @@
 
 // (345 (435 2345)) 31 345
 // $list: (55 54 3 2 32) 31 (345 (435 2345)) 345 (42 4 45) 34;
-// @debug cola-list-get(3 2 4, $list);
+// @debug cola-list-get($list, 3 2 4);
 
 @function cola-list-get-nested($indexes, $list) {
   @each $index in $indexes {
@@ -22,4 +22,4 @@
 
 // 2345
 // $list: (55 54 3 2 32) 31 (345 (435 2345)) 345 (42 4 45) 34;
-// @debug cola-list-get-nested(3 2 2, $list);
+// @debug cola-list-get-nested($list, 3 2 2);
