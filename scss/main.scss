@@ -3,9 +3,11 @@
   // Internal (kind of)
   @import 'functions/cola-null-map-get';
 
-  @import 'functions/cola-join-append'; // function mod
-  // @import 'functions/cola-larger-smaller';
+  // Basic
+  @import 'functions/cola-sum';
   @import 'functions/cola-flatten';
+  // @import 'functions/cola-larger-smaller';
+  @import 'functions/cola-join-append'; // function mod
 
   // Lists
   @import 'functions/cola-list-get';        // syntax
