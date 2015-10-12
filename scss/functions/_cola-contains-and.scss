@@ -1,6 +1,6 @@
 @function cola-contains-and($list, $items) {
-  @each $item in $list {
-    @if not index($items, $item) {
+  @each $item in $items {
+    @if not index($list, $item) {
       @return false;
     }
   }
@@ -9,7 +9,7 @@
 }
 
 // true
-// @debug cola-contains-and(1 2 4 4, 1 2 3 4);
+// @debug cola-contains-and(1 2 3 4, 1 2 3 4);
 
 // false
 // @debug cola-contains-and(1 2 4 4, 1 2 3);
