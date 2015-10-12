@@ -11,10 +11,10 @@
   @import 'functions/cola-join-append'; // function mod
 
   // Lists
-  @import 'functions/cola-list-get';        // syntax
-  @import 'functions/cola-list-set';        // syntax
+  @import 'functions/cola-get';        // syntax
+  @import 'functions/cola-set';        // syntax
 
-  @import 'functions/cola-process-nested-list'; // cola-list-set
+  @import 'functions/cola-process-nested'; // cola-set
     @import 'functions/cola-type-of';           // function mod
       @import 'functions/cola-types-in';
         @import 'functions/cola-contains-and-or';

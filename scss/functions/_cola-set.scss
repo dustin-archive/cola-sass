@@ -1,0 +1,71 @@
+@function cola-set($list, $index, $value) {
+  $result: ();
+  $length: length($list);
+
+  @for $i from 1 through if($length > $index, $length, $index) {
+    @if $i == $index {
+      $result: append($result, $value);
+    }
+    @else if $i <= $length {
+      $result: join($result, nth($list, $i));
+    }
+    @else {
+      $result: join($result, null);
+    }
+  }
+
+  @return $result;
+}
+
+// couldn't i always set the loop through $index and take whatever is left and append it on the end???
+
+// 1 2 3 null null kitty
+// @debug cola-list-set(1 2 3, 6, kitty);
+
+// 1 kitty 3
+// @debug cola-list-set(1 2 3, 2, kitty);
+
+// kitty
+// kitty
+// $empty-list: ();
+// @debug join($empty-list, kitty);
+// @debug cola-list-set($empty-list, 1, kitty);
+
+// 1 2 3 null null (4 5 6)
+// @debug cola-list-set(1 2 3, 6, 4 5 6);
+
+@function cola-set-nested($list, $indexes, $value) {
+  $result: $list;
+  $temp: $value;
+
+  // reverse the indexes list here
+  // @for $i from 2 through length($indexes) {
+  @for $i from length($indexes) through 2 {
+    $index: nth($indexes, $i);
+    $get: cola-get($list, $index);
+    @debug $get;
+    $temp: cola-set((), $index, $temp);
+    $result: cola-set($result, $index, $temp);
+  }
+
+  @return $result;
+}
+
+// 2 4 (null null (null null kitty))
+// 2 4 (8 16 (32 64 meow))
+// @debug cola-list-set-nested(2 4 8, 3 3 3, kitty);
+@debug cola-set-nested(2 4 (8 16 (32 64 128)), 3 3 3, meow);
+
+
+
+
+
+
+
+
+
+
+
+
+
+//

@@ -1,4 +1,4 @@
-@function cola-process-nested-list($call, $list) {
+@function cola-process-nested($call, $list) {
   $result: ();
 
     @for $i from 1 through length($list) {
@@ -6,7 +6,7 @@
 
       // @if type-of($item) == list and $root != 'root' {
       @if type-of($item) == list {
-        $result: cola-list-set($result, $i, cola-process-nested-list($call, $item));
+        $result: cola-set($result, $i, cola-process-nested($call, $item));
       }
       @else {
         $item: call($call, $item);
