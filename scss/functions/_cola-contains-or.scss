@@ -1,0 +1,25 @@
+@function cola-contains-or($list, $items) {
+  @each $item in $items {
+    @if index($list, $item) {
+      @return true;
+    }
+  }
+
+  @return false;
+}
+
+// true
+// @debug cola-contains-or(1 2 3 4, 2 3);
+
+// false
+// @debug cola-contains-or(1 2 4 5, 6);
+
+@function cola-contains-or-type($list, $types) {
+  @return cola-contains-or(cola-types-in($list), $types);
+}
+
+// true
+// @debug cola-contains-or-type(blue string 1, number string);
+
+// false
+// @debug cola-contains-or-type(blue !important solid, number string);
