@@ -1,0 +1,3 @@
+@function cola-remove-item($list, $item) {
+  @return cola-remove-nth($list, index($list, $item));
+}
