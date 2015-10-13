@@ -1,4 +1,4 @@
-@function cola-map-get-values($map, $keys) {
+@function cola-map-get($map, $keys) {
   $result: ();
 
   @each $key in $keys {

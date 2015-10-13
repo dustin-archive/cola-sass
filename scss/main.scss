@@ -5,6 +5,7 @@
 
   // Basic
   @import 'functions/cola-flatten';
+    @import 'functions/cola-sum';
   @import 'functions/cola-reverse';
   @import 'functions/cola-larger-smaller';
   @import 'functions/cola-join-append'; // function mod
@@ -18,14 +19,12 @@
       @import 'functions/cola-types-in';
         @import 'functions/cola-contains-and-or';
 
-  @import 'functions/cola-map-get-values'; // syntax
+  @import 'functions/cola-map-get'; // function mod // cola-join
 
 // Caffine Lib?
   // List data
   @import 'functions/cola-longest-shortest'; // cola-null-map-get
   @import 'functions/cola-largest-smallest'; // cola-null-map-get
-
-  @import 'functions/cola-sum'; // cola-flatten
 
   // Units
   @import 'functions/cola-strip-unit';
