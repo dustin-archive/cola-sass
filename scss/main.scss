@@ -1,5 +1,10 @@
 // ColaSass Lib
 
+// Caffine Lib?
+  // List data
+  @import 'functions/cola-longest-shortest'; // cola-null-map-get
+  @import 'functions/cola-largest-smallest'; // cola-null-map-get
+
   // Internal (kind of)
   @import 'functions/cola-null-map-get';
 
@@ -21,10 +26,7 @@
 
   @import 'functions/cola-map-get'; // function mod // cola-join
 
-// Caffine Lib?
-  // List data
-  @import 'functions/cola-longest-shortest'; // cola-null-map-get
-  @import 'functions/cola-largest-smallest'; // cola-null-map-get
+
 
   // Units
   @import 'functions/cola-strip-unit';
