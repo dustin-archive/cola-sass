@@ -1,6 +1,5 @@
 @function cola-larger-smaller($type, $one, $two) {
-  @if $one > $two and $type == 'larger'
-      or $one < $two and $type == 'smaller' {
+  @if $one > $two and $type == 'larger' or $one < $two and $type == 'smaller' {
     @return $one;
   }
 
