@@ -4,16 +4,16 @@
     @for $i from 1 through length($list) {
       $item: nth($list, $i);
 
-      @if type-of($item) == list {
+      @if type-of($item) == 'list' {
         @if $root != 'root' {
           $result: cola-set($result, $i, cola-process-list($call, $item, $root));
         }
         @else {
-          $result: append($result, $item); // cola-append
+          $result: append($result, $item);
         }
       }
       @else {
-        $result: append($result, call($call, $item)); // cola-append
+        $result: append($result, call($call, $item));
       }
     }
 

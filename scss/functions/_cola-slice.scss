@@ -2,7 +2,7 @@
   $result: ();
 
   @for $i from $from through $through {
-    $result: append($result, nth($list, $i)); // cola-append?
+    $result: append($result, nth($list, $i));
   }
 
   @return $result;

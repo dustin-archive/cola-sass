@@ -5,7 +5,7 @@
   @for $i from length($list) through 1 {
     $item: nth($list, $i);
 
-    @if type-of($item) == list and $root != 'root' {
+    @if type-of($item) == 'list' and $root != 'root' {
       $result: append($result, cola-reverse($item));
     }
     @else {
