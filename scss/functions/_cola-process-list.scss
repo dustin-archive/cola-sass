@@ -1,21 +1,27 @@
 @function cola-process-list($call, $list, $root) {
   $result: ();
 
-    @for $i from 1 through length($list) {
-      $item: nth($list, $i);
+  // account for empty lists and prevent them from breaking cola-type-of
+  // idk if this is the best solution to this problem
+  @if length($list) == 0 {
+    @return call($call, $list);
+  }
 
-      @if type-of($item) == 'list' {
-        @if $root != 'root' {
-          $result: cola-set($result, $i, cola-process-list($call, $item, $root));
-        }
-        @else {
-          $result: cola-append($result, $item);
-        }
+  @for $i from 1 through length($list) {
+    $item: nth($list, $i);
+
+    @if type-of($item) == 'list' {
+      @if $root != 'root' {
+        $result: cola-set($result, $i, cola-process-list($call, $item, $root));
       }
       @else {
-        $result: cola-append($result, call($call, $item));
+        $result: cola-append($result, $item);
       }
     }
+    @else {
+      $result: cola-append($result, call($call, $item));
+    }
+  }
 
   @return $result;
 }
