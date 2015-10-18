@@ -2,7 +2,7 @@
   $result: ();
   $length: length($list);
 
-  @for $i from 1 through if($length > $index, $length, $index) {
+  @for $i from 1 through cola-larger($length, $index) {
     @if $i == $index {
       $result: append($result, $value);
     }
@@ -17,23 +17,21 @@
   @return $result;
 }
 
-// couldn't i always set the loop through $index and take whatever is left and append it on the end???
-
 // 1 2 3 null null kitty
-// @debug cola-list-set(1 2 3, 6, kitty);
+// @debug cola-set(1 2 3, 6, kitty);
 
 // 1 kitty 3
-// @debug cola-list-set(1 2 3, 2, kitty);
+// @debug cola-set(1 2 3, 2, kitty);
 
 // kitty
 // kitty
-// $empty-list: ();
-// @debug join($empty-list, kitty);
-// @debug cola-list-set($empty-list, 1, kitty);
+// @debug join((), kitty);
+// @debug cola-set((), 1, kitty);
 
 // 1 2 3 null null (4 5 6)
-// @debug cola-list-set(1 2 3, 6, 4 5 6);
+// @debug cola-set(1 2 3, 6, 4 5 6);
 
+// not finished
 @function cola-set-nested($list, $indexes, $value) {
   $result: $list;
   $temp: $value;
@@ -54,18 +52,4 @@
 // 2 4 (null null (null null kitty))
 // 2 4 (8 16 (32 64 meow))
 // @debug cola-list-set-nested(2 4 8, 3 3 3, kitty);
-@debug cola-set-nested(2 4 (8 16 (32 64 128)), 3 3 3, meow);
-
-
-
-
-
-
-
-
-
-
-
-
-
-//
+// @debug cola-set-nested(2 4 (8 16 (32 64 128)), 3 3 3, meow);
