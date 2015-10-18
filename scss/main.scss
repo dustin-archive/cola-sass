@@ -1,35 +1,35 @@
-// ColaSass Lib
+// Utilities
+@import 'functions/utilities/cola-floating-point';
+@import 'functions/utilities/cola-larger-smaller';
 
-// Caffine Lib?
-  // List data
-  @import 'functions/cola-longest-shortest'; // cola-null-map-get
-  @import 'functions/cola-largest-smallest'; // cola-null-map-get
+// Core
+@import 'functions/cola-get';
+@import 'functions/cola-set'; // may need cola-join/cola-append
 
-  // Internal (kind of)
-  @import 'functions/cola-null-map-get';
+// Recursive
+@import 'functions/cola-flatten';      // may need cola-join/cola-append
+@import 'functions/cola-reverse';      // may need cola-join/cola-append
+@import 'functions/cola-slice';        // may need cola-join/cola-append
+@import 'functions/cola-sum';
 
-  // Basic
-  @import 'functions/cola-flatten';
-    @import 'functions/cola-sum';
-  @import 'functions/cola-reverse';
-  @import 'functions/cola-larger-smaller';
-  @import 'functions/cola-join-append'; // function mod
+@import 'functions/cola-process-list'; // may need cola-join/cola-append
 
-  // Lists
-  @import 'functions/cola-get';        // syntax
-  @import 'functions/cola-set';        // syntax
+// Process List
+@import 'functions/cola-strip-unit';
+@import 'functions/cola-type-of'; // mod
 
-  @import 'functions/cola-process-nested'; // cola-set
-    @import 'functions/cola-type-of';           // function mod
-      @import 'functions/cola-types-in';
-        @import 'functions/cola-contains-and-all-any';
+//
+@import 'functions/cola-join-append';           // use process-list or not?
+@import 'functions/cola-contains-and-any-only'; // cola-type-of
+@import 'functions/cola-map-get';               // mod // remove cola-join or not?
 
-  @import 'functions/cola-map-get'; // function mod // cola-join
+// Internal (kind of)
+@import 'functions/cola-null-map-get'; // remove this or not?
 
+// List data
+@import 'functions/cola-longest-shortest'; // cola-null-map-get
+@import 'functions/cola-largest-smallest'; // cola-null-map-get
 
-
-  // Units
-  @import 'functions/cola-strip-unit';
-
-@import 'functions/cola-remove-nth';
-@import 'functions/cola-remove-item';
+//
+@import 'functions/cola-remove-nth'; // make recursive? // may need cola-join/cola-append
+@import 'functions/cola-remove-item'; // make recursive?
