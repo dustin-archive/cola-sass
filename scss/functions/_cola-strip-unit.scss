@@ -2,6 +2,18 @@
   @return $value / (($value * 0) + 1);
 }
 
-@function cola-strip-units($value) {
+@function cola-strip-unit-nested($value) {
   @return cola-process-nested('cola-strip-unit', $value);
 }
+
+// should strip-unit work on root level lists??
+
+// 2
+// 2
+// @debug cola-strip-unit(2em);
+// @debug cola-strip-unit(2foobar);
+
+// 2 (2 2)
+// 2 (2 2)
+// @debug cola-strip-unit-nested(2em (2em 2em));
+// @debug cola-strip-unit-nested(2foobar (2foobar 2foobar));
