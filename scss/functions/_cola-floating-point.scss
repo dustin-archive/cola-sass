@@ -1,0 +1,7 @@
+@function cola-floating-point($value) {
+  @if floor($value) == $value {
+    @return false;
+  }
+
+  @return true;
+}
