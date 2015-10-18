@@ -9,11 +9,11 @@
           $result: cola-set($result, $i, cola-process-list($call, $item, $root));
         }
         @else {
-          $result: append($result, $item);
+          $result: cola-append($result, $item);
         }
       }
       @else {
-        $result: append($result, call($call, $item));
+        $result: cola-append($result, call($call, $item));
       }
     }
 

@@ -6,20 +6,21 @@
 @import 'functions/cola-get';
 @import 'functions/cola-set'; // may need cola-join/cola-append
 
+@import 'functions/cola-join-append'; // mod // use process-list or not? - no for now because process-lists uses join-append
+
 // Recursive
 @import 'functions/cola-flatten';      // may need cola-join/cola-append
 @import 'functions/cola-reverse';      // may need cola-join/cola-append
 @import 'functions/cola-slice';        // may need cola-join/cola-append
 @import 'functions/cola-sum';
 
-@import 'functions/cola-process-list'; // may need cola-join/cola-append
+@import 'functions/cola-process-list'; // remove cola-join or not?
 
 // Process List
 @import 'functions/cola-strip-unit';
 @import 'functions/cola-type-of'; // mod
 
 //
-@import 'functions/cola-join-append';           // use process-list or not?
 @import 'functions/cola-contains-and-any-only'; // cola-type-of
 @import 'functions/cola-map-get';               // mod // remove cola-join or not?
 
