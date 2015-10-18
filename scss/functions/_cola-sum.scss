@@ -1,8 +1,15 @@
-@function cola-sum($list) {
+@function cola-sum($list, $root: null) {
   $result: 0;
 
   @each $item in $list {
-    $result: $result + $item;
+    @if type-of($item) == list and $root != 'root' {
+      $result: $result + cola-sum($item);
+    }
+    @else if type-of($item) == number {
+      $result: $result + $item;
+    }
+    // SHOULD I ERROR HERE?
+    // Something like "item is not a number for cola-sum"
   }
 
   @return $result;
@@ -11,9 +18,7 @@
 // 9
 // @debug cola-sum(3 3 3);
 
-@function cola-sum-nested($list) {
-  @return cola-sum(cola-flatten($list));
-}
-
 // 15
-// @debug cola-sum-nested(3 3 (3 (3 3)));
+// 6
+// @debug cola-sum(3 (3 (3 3)) 3);
+// @debug cola-sum(3 (3 (3 3)) 3, 'root');
