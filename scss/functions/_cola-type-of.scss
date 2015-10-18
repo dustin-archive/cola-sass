@@ -23,11 +23,7 @@
 }
 
 @function cola-type-of($list, $root: null) {
-  @if $root == 'root' {
-    @return cola-internal-type-of($list);
-  }
-
-  @return cola-process-list('cola-internal-type-of', $list);
+  @return cola-process-list('cola-internal-type-of', $list, $root);
 }
 
 // number (number (number))
@@ -35,8 +31,8 @@
 // @debug cola-type-of(1 (2 (3)));
 // @debug cola-type-of(hello (blue (3)));
 
-// list
-// list
+// number (2 (3))
+// string (blue (3))
 // @debug cola-type-of(1 (2 (3)), 'root');
 // @debug cola-type-of(hello (blue (3)), 'root');
 
