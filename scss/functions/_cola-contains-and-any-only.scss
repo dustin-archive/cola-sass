@@ -8,12 +8,11 @@
   @return true;
 }
 
-@function cola-contains-all($list, $items) {
-  $length: cola-longest($list $items, 'length');
+@function cola-contains-only($list, $items) {
   $longest: cola-longest($list $items, 'value');
   $shortest: cola-shortest($list $items, 'value');
 
-  @for $i from 1 through $length {
+  @for $i from 1 through length($longest) {
     $item: nth($longest, $i);
 
     @if not index($shortest, $item) {
@@ -38,59 +37,59 @@
 // false
 // true
 // @debug cola-contains-and(1 2 3 4, 1);
-// @debug cola-contains-all(1 2 3 4, 1);
+// @debug cola-contains-only(1 2 3 4, 1);
 // @debug cola-contains-any(1 2 3 4, 1);
 
 // true
 // true
 // true
 // @debug cola-contains-and(1 1 1 1, 1);
-// @debug cola-contains-all(1 1 1 1, 1);
+// @debug cola-contains-only(1 1 1 1, 1);
 // @debug cola-contains-any(1 1 1 1, 1);
 
 // false
 // false
 // true
 // @debug cola-contains-and(1, 1 2);
-// @debug cola-contains-all(1, 1 2);
+// @debug cola-contains-only(1, 1 2);
 // @debug cola-contains-any(1, 1 2);
 
 // true
 // true
 // true
 // @debug cola-contains-and(1 2 3 4, 1 2 3 4);
-// @debug cola-contains-all(1 2 3 4, 1 2 3 4);
+// @debug cola-contains-only(1 2 3 4, 1 2 3 4);
 // @debug cola-contains-any(1 2 3 4, 1 2 3 4);
 
 // true
 // false
 // true
 // @debug cola-contains-and(1 2 3 4, 1 2 3);
-// @debug cola-contains-all(1 2 3 4, 1 2 3);
+// @debug cola-contains-only(1 2 3 4, 1 2 3);
 // @debug cola-contains-any(1 2 3 4, 1 2 3);
 
 // false
 // false
 // true
 // @debug cola-contains-and(1 2 3 4, 1 2 3 5);
-// @debug cola-contains-all(1 2 3 4, 1 2 3 5);
+// @debug cola-contains-only(1 2 3 4, 1 2 3 5);
 // @debug cola-contains-any(1 2 3 4, 1 2 3 5);
 
 // false
 // false
 // false
 // @debug cola-contains-and(1 2 3 4, 5 6 7 8);
-// @debug cola-contains-all(1 2 3 4, 5 6 7 8);
+// @debug cola-contains-only(1 2 3 4, 5 6 7 8);
 // @debug cola-contains-any(1 2 3 4, 5 6 7 8);
 
-@function cola-contains-type-and($list, $types) {
+@function cola-contains-and-type($list, $types) {
   @return cola-contains-and(cola-types-in($list), $types);
 }
 
-@function cola-contains-type-all($list, $types) {
-  @return cola-contains-all(cola-types-in($list), $types);
+@function cola-contains-only-type($list, $types) {
+  @return cola-contains-only(cola-types-in($list), $types);
 }
 
-@function cola-contains-type-any($list, $types) {
+@function cola-contains-any-type($list, $types) {
   @return cola-contains-any(cola-types-in($list), $types);
 }
