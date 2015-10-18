@@ -1,22 +1,20 @@
 @function cola-internal-type-of($value) {
-  $styles: none hidden dotted dashed solid double groove ridge inset outset;
-  $lengths: px em rem vw vh vmin vmax in cm mm pt pc ex ch;
+  $styles: 'none' 'hidden' 'dotted' 'dashed' 'solid' 'double' 'groove' 'ridge' 'inset' 'outset';
+  $lengths: 'px' 'em' 'rem' 'vw' 'vh' 'vmin' 'vmax' 'in' 'cm' 'mm' 'pt' 'pc' 'ex' 'ch';
 
-  @if type-of($value) == string {
+  @if type-of($value) == 'string' {
     @if index($styles, $value) {
-      @return style;
+      @return 'style';
     }
     @else if index($lengths, $value) {
-      @return length;
+      @return 'length';
     }
     @else if str-index($value, '!') {
-      @return flag;
+      @return 'flag';
     }
   }
-  @else if type-of($value) == list {
-    @if length($value) == 1 {
-      @return type-of(nth($value, 1));
-    }
+  @else if type-of($value) == 'list' and length($value) == 1 {
+    @return type-of(nth($value, 1));
   }
 
   @return type-of($value);
@@ -40,6 +38,9 @@
 // string
 // @debug type-of(join((), foobar));
 // @debug cola-type-of(join((), foobar));
+
+// list
+// @debug cola-type-of(());
 
 // style
 // @debug cola-type-of(solid);
