@@ -1,0 +1,40 @@
+@function cola-process-list($call, $list, $root: null) {
+  $result: ();
+
+    @for $i from 1 through length($list) {
+      $item: nth($list, $i);
+
+      @if type-of($item) == list {
+        @if $root != 'root' {
+          $result: cola-set($result, $i, cola-process-list($call, $item, $root));
+        }
+        @else {
+          $result: append($result, $item); // cola-append
+        }
+      }
+      @else {
+        $result: append($result, call($call, $item)); // cola-append
+      }
+    }
+
+  @return $result;
+}
+
+// MAKE A BETTER TEST
+// @function test-strip-unit($value) {
+//   @return $value / (($value * 0) + 1);
+// }
+
+// 1
+// 1 (2 (3 (4))) (5) 6
+// 1 (2x (3x (4x))) (5x) 6
+// @debug cola-process-list('test-strip-unit', 1x);
+// @debug cola-process-list('test-strip-unit', 1x (2x (3x (4x))) (5x) 6x);
+// @debug cola-process-list('test-strip-unit', 1x (2x (3x (4x))) (5x) 6x, 'root');
+
+// 1
+// 1 (2 (3 (4))) (5) 6
+// 1 (2 (3 (4))) (5) 6
+// @debug cola-process-list('test-strip-unit', 1);
+// @debug cola-process-list('test-strip-unit', 1 (2 (3 (4))) (5) 6);
+// @debug cola-process-list('test-strip-unit', 1 (2 (3 (4))) (5) 6, 'root');
