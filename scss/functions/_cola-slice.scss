@@ -1,0 +1,12 @@
+@function cola-slice($list, $from, $through: length($list)) {
+  $result: ();
+
+  @for $i from $from through $through {
+    $result: append($result, nth($list, $i)); // cola-append?
+  }
+
+  @return $result;
+}
+
+// (3 4) 5 6 7 8
+// @debug cola-slice(1 2 (3 4) 5 6 7 8 9, 3, 7);
