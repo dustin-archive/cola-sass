@@ -20,21 +20,13 @@
   @return $result;
 }
 
-// MAKE A BETTER TEST
-// @function test-strip-unit($value) {
-//   @return $value / (($value * 0) + 1);
+// @function test($value) {
+//   @return $value * 10;
 // }
 
 // 1
-// 1 (2 (3 (4))) 5
-// 1 (2x (3x (4x)))  5
-// @debug cola-process-list('test-strip-unit', 1x);
-// @debug cola-process-list('test-strip-unit', 1x (2x (3x (4x))) 5x);
-// @debug cola-process-list('test-strip-unit', 1x (2x (3x (4x))) 5x, 'root');
-
-// 1
-// 1 (2 (3 (4))) (5) 6
-// 1 (2 (3 (4))) (5) 6
-// @debug cola-process-list('test-strip-unit', 1);
-// @debug cola-process-list('test-strip-unit', 1 (2 (3 (4))) 5);
-// @debug cola-process-list('test-strip-unit', 1 (2 (3 (4))) 5, 'root');
+// 10 (20 (30 (40))) 50
+// 10 (2 (3 (4))) 50
+// @debug cola-process-list('test', 1, null);
+// @debug cola-process-list('test', 1 (2 (3 (4))) 5, null);
+// @debug cola-process-list('test', 1 (2 (3 (4))) 5, 'root');
