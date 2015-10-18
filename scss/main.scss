@@ -1,12 +1,21 @@
 // Utilities
 @import 'functions/utilities/cola-floating-point';
 @import 'functions/utilities/cola-larger-smaller';
+@import 'functions/utilities/cola-longer-shorter';
 
 // Core
 @import 'functions/cola-get';
 @import 'functions/cola-set'; // may need cola-join/cola-append
 
 @import 'functions/cola-join-append'; // mod // use process-list or not? - no for now because process-lists uses join-append
+
+// Internal (kind of)
+@import 'functions/cola-null-map-get'; // remove this or not?
+
+// List data
+@import 'functions/cola-longest-shortest'; // cola-null-map-get
+@import 'functions/cola-largest-smallest'; // cola-null-map-get
+
 
 // Recursive
 @import 'functions/cola-flatten';      // may need cola-join/cola-append
@@ -21,15 +30,8 @@
 @import 'functions/cola-type-of'; // mod
 
 //
-@import 'functions/cola-contains-and-any-only'; // cola-type-of
+@import 'functions/cola-contains-and-any-only'; // cola-type-of // longest-shortest
 @import 'functions/cola-map-get';               // mod // remove cola-join or not?
-
-// Internal (kind of)
-@import 'functions/cola-null-map-get'; // remove this or not?
-
-// List data
-@import 'functions/cola-longest-shortest'; // cola-null-map-get
-@import 'functions/cola-largest-smallest'; // cola-null-map-get
 
 //
 @import 'functions/cola-remove-nth'; // make recursive? // may need cola-join/cola-append
