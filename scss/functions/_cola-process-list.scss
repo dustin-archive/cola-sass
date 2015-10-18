@@ -26,15 +26,15 @@
 // }
 
 // 1
-// 1 (2 (3 (4))) (5) 6
-// 1 (2x (3x (4x))) (5x) 6
+// 1 (2 (3 (4))) 5
+// 1 (2x (3x (4x)))  5
 // @debug cola-process-list('test-strip-unit', 1x);
-// @debug cola-process-list('test-strip-unit', 1x (2x (3x (4x))) (5x) 6x);
-// @debug cola-process-list('test-strip-unit', 1x (2x (3x (4x))) (5x) 6x, 'root');
+// @debug cola-process-list('test-strip-unit', 1x (2x (3x (4x))) 5x);
+// @debug cola-process-list('test-strip-unit', 1x (2x (3x (4x))) 5x, 'root');
 
 // 1
 // 1 (2 (3 (4))) (5) 6
 // 1 (2 (3 (4))) (5) 6
 // @debug cola-process-list('test-strip-unit', 1);
-// @debug cola-process-list('test-strip-unit', 1 (2 (3 (4))) (5) 6);
-// @debug cola-process-list('test-strip-unit', 1 (2 (3 (4))) (5) 6, 'root');
+// @debug cola-process-list('test-strip-unit', 1 (2 (3 (4))) 5);
+// @debug cola-process-list('test-strip-unit', 1 (2 (3 (4))) 5, 'root');
