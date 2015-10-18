@@ -1,4 +1,4 @@
-@function cola-process-list($call, $list, $root: null) {
+@function cola-process-list($call, $list, $root) {
   $result: ();
 
     @for $i from 1 through length($list) {
