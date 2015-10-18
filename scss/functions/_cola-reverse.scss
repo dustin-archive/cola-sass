@@ -1,12 +1,27 @@
-@function cola-reverse($list) {
+
+@function cola-reverse($list, $root: null) {
   $result: ();
 
   @for $i from length($list) through 1 {
-    $result: append($result, nth($list, $i));
+    $item: nth($list, $i);
+
+    @if type-of($item) == list and $root != 'root' {
+      $result: append($result, cola-reverse($item));
+    }
+    @else {
+      $result: append($result, nth($list, $i));
+    }
   }
 
   @return $result;
 }
 
-// 8 7 6 5 4 3 2 1
-// @debug cola-reverse(1 2 3 4 5 6 7 8);
+// 9 8 7 6 5 4 3 2 1
+// 9 8 7 6 (3 2 1) 4 3 2 1
+// @debug cola-reverse(1 2 3 4 5 6 7 8 9);
+// @debug cola-reverse(1 2 3 4 (1 2 3) 6 7 8 9);
+
+// 9 8 7 6 5 4 3 2 1
+// 9 8 7 6 (1 2 3) 4 3 2 1
+// @debug cola-reverse(1 2 3 4 5 6 7 8 9, 'root');
+// @debug cola-reverse(1 2 3 4 (1 2 3) 6 7 8 9, 'root');
