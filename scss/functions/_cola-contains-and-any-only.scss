@@ -9,13 +9,8 @@
 }
 
 @function cola-contains-only($list, $items) {
-  $longest: cola-longest($list $items, 'value');
-  $shortest: cola-shortest($list $items, 'value');
-
-  @for $i from 1 through length($longest) {
-    $item: nth($longest, $i);
-
-    @if not index($shortest, $item) {
+  @each $item in $list {
+    @if not index($items, $item) {
       @return false;
     }
   }
@@ -48,11 +43,11 @@
 // @debug cola-contains-any(1 1 1 1, 1);
 
 // false
-// false
 // true
-// @debug cola-contains-and(1, 1 2);
-// @debug cola-contains-only(1, 1 2);
-// @debug cola-contains-any(1, 1 2);
+// true
+// @debug cola-contains-and(1, 1 2 3 4);
+// @debug cola-contains-only(1, 1 2 3 4);
+// @debug cola-contains-any(1, 1 2 3 4);
 
 // true
 // true
