@@ -1,0 +1,41 @@
+// rename to cola-map-get-keys?
+@function cola-flatten-keys($maps) {
+  $result: ();
+
+  @each $map in $maps {
+    $keys: map-keys($map);
+
+    @each $key in $keys {
+      $result: join($result, map-get($map, $key));
+    }
+  }
+
+  @debug $result;
+
+  @if cola-contains-and-types($result, map) {
+    @return cola-flatten-keys($result);
+  }
+
+  @return $result;
+}
+
+// 11 22 33 44 55 66 77
+// 1 2 3 4 6 7
+
+// $map1: (one: 1, two: 2);
+// $map2: (three: 3, four: 4, five: (six: 6, seven: 7));
+// @debug map-keys($map2);
+// @debug map-values($map2);
+
+// @debug cola-flatten-keys(   (11: 1, 22: 2) (33: 3, 44: 4, 55: (66: 6, 77: 7)) );
+// @debug cola-flatten-values( (11: 1, 12: 2) (23: 3, 44: 4, 55: (66: 6, 77: 7)) );
+
+// 1, 2, 3, 4
+// 1, 2, 3, 4
+// @debug map-keys(   (1: 1, 2: 2, 3: 3, 4: 4) );
+// @debug map-values( (1: 1, 2: 2, 3: 3, 4: 4) );
+
+// error
+// error
+// @debug map-keys(   (1: 1, 2: 2) (3: 3, 4: 4) );
+// @debug map-values( (1: 1, 2: 2) (3: 3, 4: 4) );
