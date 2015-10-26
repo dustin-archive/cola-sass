@@ -16,6 +16,8 @@
 @import 'functions/cola-longest-shortest'; // cola-null-map-get
 @import 'functions/cola-largest-smallest'; // cola-null-map-get
 
+// String data
+@import 'functions/cola-str-longest-shortest'; // cola-null-map-get
 
 // Recursive
 @import 'functions/cola-flatten';      // may need cola-join/cola-append
@@ -36,3 +38,10 @@
 //
 @import 'functions/cola-remove-nth'; // make recursive? // may need cola-join/cola-append
 @import 'functions/cola-remove-item'; // make recursive?
+
+@import 'functions/cola-flatten-keys';
+
+@import '../../cart-sass/scss/main';
+// @import 'test/cola-test-contains-and';
+// @import 'test/cola-test-contains-any';
+// @import 'test/cola-test-contains-only';
