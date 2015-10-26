@@ -1,0 +1,55 @@
+@function cola-str-longest-shortest($type, $list) {
+  $result: null;
+
+  @for $i from 1 through length($list) {
+    $item: nth($list, $i);
+    $length: str-length($item);
+
+    @if $result == null
+        or $type == 'longest' and $length > map-get($result, length)
+        or $type == 'shortest' and $length < map-get($result, length) {
+      $result: (value: $item, index: $i, length: $length);
+    }
+    @else if $length == map-get($result, length) {
+      $tie: (
+        value: map-get($result, value) $item,
+        index: map-get($result, index) $i
+      );
+      $result: map-merge($result, $tie);
+    }
+  }
+
+  @return $result;
+}
+
+@function cola-str-longest($list, $key) {
+  @return cola-null-map-get(cola-str-longest-shortest('longest', $list), $key);
+}
+
+@function cola-str-shortest($list, $key) {
+  @return cola-null-map-get(cola-str-longest-shortest('shortest', $list), $key);
+}
+
+// (list: (1 2 3 4), index: 1, length: 4)
+// (list: (1 2 3 4) (1 2 3 4), index: 1 4, length: 4)
+// @debug cola-longest( (1 2 3 4) (1 (2 3)) (1 2 3) );
+// @debug cola-longest( (1 2 3 4) (1 (2 3)) (1 2 3) (1 2 3 4) );
+
+// (list: (1 2 3 4), index: 2, length: 2)
+// (list: (1 (2 3)) (1 2), index: 2 4, length: 2)
+// @debug cola-shortest( (1 2 3 4) (1 (2 3)) (1 2 3) );
+// @debug cola-shortest( (1 2 3 4) (1 (2 3)) (1 2 3) (1 2) );
+
+// 3 3 3
+// 3
+// 3
+// @debug cola-longest((1) (2 2) (3 3 3), value);
+// @debug cola-longest((1) (2 2) (3 3 3), index);
+// @debug cola-longest((1) (2 2) (3 3 3), length);
+
+// 1
+// 1
+// 1
+// @debug cola-shortest((1) (2 2) (3 3 3), value);
+// @debug cola-shortest((1) (2 2) (3 3 3), index);
+// @debug cola-shortest((1) (2 2) (3 3 3), length);
