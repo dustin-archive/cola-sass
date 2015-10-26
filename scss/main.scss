@@ -20,9 +20,9 @@
 @import 'functions/cola-str-longest-shortest'; // cola-null-map-get
 
 // Recursive
-@import 'functions/cola-flatten';      // may need cola-join/cola-append
-@import 'functions/cola-reverse';      // may need cola-join/cola-append
-@import 'functions/cola-slice';        // may need cola-join/cola-append
+@import 'functions/cola-flatten'; // may need cola-join/cola-append
+@import 'functions/cola-reverse'; // may need cola-join/cola-append
+@import 'functions/cola-slice';   // may need cola-join/cola-append
 @import 'functions/cola-sum';
 
 @import 'functions/cola-process-list'; // remove cola-join or not?
@@ -36,7 +36,7 @@
 @import 'functions/cola-contains-any';
 @import 'functions/cola-contains-only';
 @import 'functions/cola-contains-type'; // cola-types-in
-@import 'functions/cola-map-get';               // mod // remove cola-join or not?
+@import 'functions/cola-map-get';       // mod // remove cola-join or not?
 
 //
 @import 'functions/cola-remove-nth'; // make recursive? // may need cola-join/cola-append
@@ -45,6 +45,10 @@
 @import 'functions/cola-flatten-keys';
 
 @import '../../cart-sass/scss/main';
-// @import 'test/cola-test-contains-and';
-// @import 'test/cola-test-contains-any';
-// @import 'test/cola-test-contains-only';
+// @import 'test/cola-contains-and-test';
+// @import 'test/cola-contains-any-test';
+// @import 'test/cola-contains-only-test';
+
+@import 'test/cola-map-get-test'; // failing tests
+
+// @import 'test/cola-append-test';
