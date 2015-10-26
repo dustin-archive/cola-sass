@@ -32,13 +32,13 @@
 @import 'functions/cola-strip-unit';
 @import 'functions/cola-type-of'; // mod
 
-//
-@import 'functions/cola-contains-and';
-@import 'functions/cola-contains-any';
-@import 'functions/cola-contains-only';
-@import 'functions/cola-contains-type-and';  // cola-type-of
-@import 'functions/cola-contains-type-any';  // cola-type-of
-@import 'functions/cola-contains-type-only'; // cola-type-of
+// Contains
+@import 'functions/contains/cola-contains-and';
+@import 'functions/contains/cola-contains-any';
+@import 'functions/contains/cola-contains-only';
+@import 'functions/contains/cola-contains-type-and';  // cola-type-of
+@import 'functions/contains/cola-contains-type-any';  // cola-type-of
+@import 'functions/contains/cola-contains-type-only'; // cola-type-of
 
 @import 'functions/cola-map-get';       // mod // remove cola-combine or not?
 
