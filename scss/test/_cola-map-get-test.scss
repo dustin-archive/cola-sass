@@ -1,0 +1,47 @@
+$map-1: ('one': 1, 'two': 1);
+$map-2: ('one': 1 2 3, 'two': 1 2 3);
+
+$cola-map-get-test: (
+  'cola-map-get 1': (
+    test: cola-map-get($map-1, 'one'),
+    return: 1
+  ),
+  'cola-map-get 2': (
+    test: cola-map-get($map-1, 'one' 'two'),
+    return: 1 1
+  ),
+  'cola-map-get 3': (
+    test: cola-map-get($map-2, 'one'),
+    return: 1 2 3
+  ),
+  'cola-map-get 4': (
+    test: cola-map-get($map-2, 'one' 'two'),
+    return: (1 2 3) (1 2 3)
+  ),
+  'cola-map-get 5': (
+    test: nth(cola-map-get($map-2, 'one' 'two'), 1),
+    return: 1 2 3
+  ),
+  'cola-map-get type-of 1': (
+    test: type-of(cola-map-get($map-1, 'one')),
+    return: number
+  ),
+  'cola-map-get type-of 2': (
+    test: type-of(cola-map-get($map-1, 'one' 'two')),
+    return: list
+  ),
+  'cola-map-get type-of 3': (
+    test: type-of(cola-map-get($map-2, 'one')),
+    return: list
+  ),
+  'cola-map-get type-of 4': (
+    test: type-of(cola-map-get($map-2, 'one' 'two')),
+    return: list
+  ),
+  'cola-map-get type-of 5': (
+    test: type-of(nth(cola-map-get($map-2, 'one' 'two'), 1)),
+    return: list
+  )
+);
+
+@debug cart($cola-map-get-test);

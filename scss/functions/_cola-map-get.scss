@@ -1,8 +1,13 @@
 @function cola-map-get($map, $keys) {
-  $result: ();
+  $result: null;
 
   @each $key in $keys {
-    $result: cola-join($result, map-get($map, $key));
+    @if $result {
+      $result: $result map-get($map, $key);
+    }
+    @else {
+      $result: map-get($map, $key);
+    }
   }
 
   @return $result;
