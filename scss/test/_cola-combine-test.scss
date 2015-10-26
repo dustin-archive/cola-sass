@@ -1,0 +1,32 @@
+$cola-combine-test: (
+  'cola-combine 1': (
+    test: cola-combine((), 1),
+    return: 1
+  ),
+  'cola-combine 2': (
+    test: cola-combine(1, ()),
+    return: 1
+  ),
+  'cola-combine 3': (
+    test: cola-combine(1 2 3, 4 5 6),
+    return: (1 2 3) (4 5 6)
+  ),
+  'cola-combine 4': (
+    test: cola-combine((1, 2, 3), 4 5 6),
+    return: (1, 2, 3) (4 5 6)
+  ),
+  'cola-combine 5': (
+    test: cola-combine(1 2 3, 4 5 6, comma),
+    return: (1 2 3, 4 5 6)
+  ),
+  'cola-combine type-of 1': (
+    test: type-of(cola-combine((), 1)),
+    return: number
+  ),
+  'cola-combine type-of 2': (
+    test: type-of(cola-combine(1, ())),
+    return: number
+  )
+);
+
+@debug cart($cola-combine-test);
