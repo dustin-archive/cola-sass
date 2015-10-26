@@ -1,0 +1,3 @@
+@function cola-contains-type-and($list, $types) {
+  @return cola-contains-and(cola-type-of($list), $types);
+}

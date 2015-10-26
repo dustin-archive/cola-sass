@@ -1,0 +1,3 @@
+@function cola-contains-type-only($list, $types) {
+  @return cola-contains-only(cola-type-of($list), $types);
+}
