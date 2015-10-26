@@ -22,19 +22,3 @@
 @function cola-append($list, $value, $separator: 'auto') {
   @return cola-join-append('append', $list, $value, $separator);
 }
-
-// list
-// list
-// $test-list: (1);
-// @debug type-of(cola-join($test-list, 2));
-// @debug type-of(cola-append($test-list, 2));
-
-// list
-// list
-// number
-// number
-// $test-list: ();
-// @debug type-of(join($test-list, 1 2));
-// @debug type-of(append($test-list, 1 2));
-// @debug type-of(cola-join($test-list, 1 2));
-// @debug type-of(cola-append($test-list, 1 2));
