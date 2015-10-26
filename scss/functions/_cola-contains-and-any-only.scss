@@ -28,55 +28,6 @@
   @return true;
 }
 
-// true
-// true
-// false
-// @debug cola-contains-and(1 2 3 4, 1);
-// @debug cola-contains-any(1 2 3 4, 1);
-// @debug cola-contains-only(1 2 3 4, 1);
-
-// true
-// true
-// true
-// @debug cola-contains-and(1 1 1 1, 1);
-// @debug cola-contains-any(1 1 1 1, 1);
-// @debug cola-contains-only(1 1 1 1, 1);
-
-// false
-// true
-// true
-// @debug cola-contains-and(1, 1 2 3 4);
-// @debug cola-contains-any(1, 1 2 3 4);
-// @debug cola-contains-only(1, 1 2 3 4);
-
-// true
-// true
-// true
-// @debug cola-contains-and(1 2 3 4, 1 2 3 4);
-// @debug cola-contains-any(1 2 3 4, 1 2 3 4);
-// @debug cola-contains-only(1 2 3 4, 1 2 3 4);
-
-// true
-// true
-// false
-// @debug cola-contains-and(1 2 3 4, 1 2 3);
-// @debug cola-contains-any(1 2 3 4, 1 2 3);
-// @debug cola-contains-only(1 2 3 4, 1 2 3);
-
-// false
-// true
-// false
-// @debug cola-contains-and(1 2 3 4, 1 2 3 5);
-// @debug cola-contains-any(1 2 3 4, 1 2 3 5);
-// @debug cola-contains-only(1 2 3 4, 1 2 3 5);
-
-// false
-// false
-// false
-// @debug cola-contains-and(1 2 3 4, 5 6 7 8);
-// @debug cola-contains-any(1 2 3 4, 5 6 7 8);
-// @debug cola-contains-only(1 2 3 4, 5 6 7 8);
-
 @function cola-contains-and-type($list, $types) {
   @return cola-contains-and(cola-types-in($list), $types);
 }
