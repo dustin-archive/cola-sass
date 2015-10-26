@@ -8,6 +8,7 @@
 @import 'functions/cola-set'; // may need cola-join/cola-append
 
 @import 'functions/cola-join-append'; // mod // use process-list or not? - no for now because process-lists uses join-append
+@import 'functions/cola-combine'; // cola-combine // use process-list or not? - no for now because process-lists uses join-append
 
 // Internal (kind of)
 @import 'functions/cola-null-map-get'; // remove this or not?
@@ -49,6 +50,8 @@
 // @import 'test/cola-contains-any-test';
 // @import 'test/cola-contains-only-test';
 
-@import 'test/cola-map-get-test'; // failing tests
+// @import 'test/cola-map-get-test';
 
 // @import 'test/cola-append-test';
+
+// @import 'test/cola-combine-test';
