@@ -1,5 +1,5 @@
-@function cola-join-append($type, $list, $value, $seperator: 'auto') {
-  $result: call($type, $list, $value, $seperator);
+@function cola-join-append($type, $list, $value, $separator: 'auto') {
+  $result: call($type, $list, $value, $separator);
 
   @if length($result) == 1 {
     $result: nth($result, 1);
@@ -8,12 +8,12 @@
   @return $result;
 }
 
-@function cola-join($list, $value, $seperator: 'auto') {
-  @return cola-join-append('join', $list, $value, $seperator);
+@function cola-join($list, $value, $separator: 'auto') {
+  @return cola-join-append('join', $list, $value, $separator);
 }
 
-@function cola-append($list, $value, $seperator: 'auto') {
-  @return cola-join-append('append', $list, $value, $seperator);
+@function cola-append($list, $value, $separator: 'auto') {
+  @return cola-join-append('append', $list, $value, $separator);
 }
 
 // list
@@ -27,7 +27,7 @@
 // number
 // number
 // $test-list: ();
-// @debug type-of(join($test-list, 1));
-// @debug type-of(append($test-list, 1));
-// @debug type-of(cola-join($test-list, 1));
-// @debug type-of(cola-append($test-list, 1));
+// @debug type-of(join($test-list, 1 2));
+// @debug type-of(append($test-list, 1 2));
+// @debug type-of(cola-join($test-list, 1 2));
+// @debug type-of(cola-append($test-list, 1 2));
