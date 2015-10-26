@@ -1,4 +1,11 @@
 @function cola-join-append($type, $list, $value, $separator: 'auto') {
+  @if length($list) == 0 {
+    @return $value;
+  }
+  @else if length($value) == 0 {
+    @return $list;
+  }
+
   $result: call($type, $list, $value, $separator);
 
   @if length($result) == 1 {
