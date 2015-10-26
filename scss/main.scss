@@ -32,7 +32,10 @@
 @import 'functions/cola-type-of'; // mod
 
 //
-@import 'functions/cola-contains-and-any-only'; // cola-type-of // longest-shortest
+@import 'functions/cola-contains-and';
+@import 'functions/cola-contains-any';
+@import 'functions/cola-contains-only';
+@import 'functions/cola-contains-type'; // cola-types-in
 @import 'functions/cola-map-get';               // mod // remove cola-join or not?
 
 //
