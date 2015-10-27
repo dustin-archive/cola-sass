@@ -30,7 +30,7 @@
 
 // Process List
 @import 'functions/cola-strip-unit';
-@import 'functions/cola-type-of'; // mod // rename to type? instead of type-of?
+@import 'functions/cola-type-of'; // mod // rename to type? instead of type-of? // figure out whether to output nested lists as 'list' or not when using root
 
 // Contains
 @import 'functions/contains/cola-contains-and';
