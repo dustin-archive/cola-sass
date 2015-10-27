@@ -1,0 +1,28 @@
+$cola-type-of-test: (
+  'style': (
+    test: cola-type-of(dotted (dotted (dotted))),
+    return: style (style (style))
+  ),
+  'length': (
+    test: cola-type-of(px (px (px))),
+    return: length (length (length))
+  ),
+  'flag': (
+    test: cola-type-of(!important (!important (!important))),
+    return: flag (flag (flag))
+  ),
+  'number': (
+    test: cola-type-of(1 (2 (3))),
+    return: number (number (number))
+  ),
+  'root': (
+    test: cola-type-of(1 (2 (3)), 'root'),
+    return: number list
+  ),
+  'list of one': (
+    test: cola-type-of(join((), 1)),
+    return: number
+  )
+);
+
+@debug cart($cola-type-of-test);

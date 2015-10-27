@@ -24,29 +24,10 @@
   @return cola-process-list('cola-internal-type-of', $list, $root);
 }
 
-// number (number (number))
-// string (color (number))
-// @debug cola-type-of(1 (2 (3)));
-// @debug cola-type-of(hello (blue (3)));
-
-// number (2 (3))
-// string (blue (3))
-// @debug cola-type-of(1 (2 (3)), 'root');
-// @debug cola-type-of(hello (blue (3)), 'root');
-
-// list
-// string
-// @debug type-of(join((), foobar));
-// @debug cola-type-of(join((), foobar));
-
-// list
-// @debug cola-type-of(());
-
-// style
-// @debug cola-type-of(solid);
-
-// length
-// @debug cola-type-of(px);
-
-// flag
-// @debug cola-type-of(!important);
+// @function cola-type-of($list, $root: null) {
+//   @if $root {
+//     @return cola-internal-type-of($list);
+//   }
+//
+//   @return cola-process-list('cola-internal-type-of', $list, $root);
+// }

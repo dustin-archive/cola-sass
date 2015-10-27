@@ -30,7 +30,7 @@
 
 // Process List
 @import 'functions/cola-strip-unit';
-@import 'functions/cola-type-of'; // mod
+@import 'functions/cola-type-of'; // mod // rename to type? instead of type-of?
 
 // Contains
 @import 'functions/contains/cola-contains-and';
@@ -58,3 +58,5 @@
 // @import 'test/cola-join-test';
 // @import 'test/cola-append-test';
 // @import 'test/cola-combine-test';
+
+// @import 'test/cola-type-of-test'; // failing tests
