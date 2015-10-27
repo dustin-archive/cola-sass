@@ -7,7 +7,7 @@
     @if type-of($value) == list {
       $nest: cola-largest-smallest($type, $value);
       $value: map-get($nest, value);
-      $i: join($i, map-get($nest, index));
+      $i: join($i, map-get($nest, index)); // cola-join?
     }
 
     @if $result == null
@@ -31,6 +31,21 @@
 @function cola-smallest($list, $key: null) {
   @return cola-null-map-get(cola-largest-smallest('smallest', $list), $key);
 }
+
+// problem:
+// + you can't tell a difference between multiple indexes and a single nested index
+//
+// + could give them commas - like coordinates
+// + i'd prefer colons but those aren't allowed in SCSS
+//
+// + maybe it could be a string??
+//   (value: 2345, index: '3:2:2')
+// + it's obviously a list though... but there's no way to force ()'s
+// + i'd then have to have a function to process these strings and convert them to numbers
+//
+// + could have a seperate item in the map for nested indexes??
+//   + this could also solve the problem of optional root-level only stuff?
+//     + i can't do this for all functions though
 
 // (value: 2345, index: 3 2 2)
 // (value: 2345, index: (3 2 2) 7)
