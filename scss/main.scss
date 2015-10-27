@@ -4,7 +4,7 @@
 @import 'functions/utilities/cola-longer-shorter';
 
 // Core
-@import 'functions/cola-get';
+@import 'functions/cola-get'; // could be simplified
 @import 'functions/cola-set'; // may need cola-join/cola-append
 
 @import 'functions/cola-join-append'; // mod // use process-list or not? - no for now because process-lists uses join-append
@@ -60,3 +60,5 @@
 // @import 'test/cola-combine-test';
 
 // @import 'test/cola-type-of-test'; // failing tests
+
+// @import 'test/cola-get-test';

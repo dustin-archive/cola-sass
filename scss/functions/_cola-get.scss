@@ -1,4 +1,4 @@
-@function cola-get($list, $indexes) {
+@function cola-get-root($list, $indexes) {
   $result: ();
 
   @each $index in $indexes {
@@ -8,11 +8,17 @@
   @return $result;
 }
 
-// (345 (435 2345)) 31 345
-// $list: (55 54 3 2 32) 31 (345 (435 2345)) 345 (42 4 45) 34;
-// @debug cola-list-get($list, 3 2 4);
+@function cola-get-root-multiple($list, $indexes) {
+  $result: ();
 
-@function cola-get-nested($indexes, $list) {
+  @each $index in $indexes {
+    $result: append($result, cola-get-root($list, $index));
+  }
+
+  @return $result;
+}
+
+@function cola-get-nested($list, $indexes) {
   @each $index in $indexes {
     $list: nth($list, $index);
   }
@@ -20,6 +26,29 @@
   @return $list;
 }
 
-// 2345
-// $list: (55 54 3 2 32) 31 (345 (435 2345)) 345 (42 4 45) 34;
-// @debug cola-list-get-nested($list, 3 2 2);
+@function cola-get-nested-multiple($list, $indexes) {
+  $result: ();
+
+  @each $index in $indexes {
+    $result: append($result, cola-get-nested($list, $index));
+  }
+
+  @return $result;
+}
+
+@function cola-get($list, $indexes, $root: null) {
+  @if $root == 'root' {
+    @if length(nth($indexes, 1)) > 1 {
+      @return cola-get-root-multiple($list, $indexes);
+    }
+
+    @return cola-get-root($list, $indexes);
+  }
+  // else error?
+
+  @if length(nth($indexes, 1)) > 1 {
+    @return cola-get-nested-multiple($list, $indexes);
+  }
+
+  @return cola-get-nested($list, $indexes);
+}
