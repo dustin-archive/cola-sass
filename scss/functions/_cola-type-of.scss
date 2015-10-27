@@ -23,11 +23,3 @@
 @function cola-type-of($list, $root: null) {
   @return cola-process-list('cola-internal-type-of', $list, $root);
 }
-
-// @function cola-type-of($list, $root: null) {
-//   @if $root {
-//     @return cola-internal-type-of($list);
-//   }
-//
-//   @return cola-process-list('cola-internal-type-of', $list, $root);
-// }
