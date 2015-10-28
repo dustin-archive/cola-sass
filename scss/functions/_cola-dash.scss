@@ -1,0 +1,40 @@
+@function cola-dash($list) {
+  $result: null;
+
+  @each $item in $list {
+    @if $item {
+      @if $result {
+        $result: $result + '-' + $item; // these could be stored as an expression and both could call the same parent function
+      }
+      @else {
+        $result: $item;
+      }
+    }
+  }
+
+  @return $result;
+}
+
+// one two three (four five) six
+// one-two-three-(four-five)-six
+
+// @debug cola-dash(one null three four);
+
+// @function cola-null-remove($list) {
+//   $result: null;
+//
+//   @each $item in $list {
+//     @if $item {
+//       @if $result {
+//         $result: join($result, $item); // these could be stored as an expression and both could call the same parent function
+//       }
+//       @else {
+//         $result: $item;
+//       }
+//     }
+//   }
+//
+//   @return $result;
+// }
+
+// @debug nullifier(one null three four);
