@@ -1,3 +1,6 @@
+// Testing
+@import '../../cart-sass/scss/main';
+
 // Utilities
 @import 'functions/utilities/cola-floating-point';
 @import 'functions/utilities/cola-larger-smaller';
@@ -8,7 +11,7 @@
 @import 'functions/cola-set'; // may need cola-join/cola-append
 
 @import 'functions/cola-join-append'; // mod // use process-list or not? - no for now because process-lists uses join-append
-@import 'functions/cola-combine'; // use process-list or not? - no for now because process-lists uses join-append
+@import 'functions/cola-combine'; // needs to be able to accept a list? // use process-list or not? - no for now because process-lists uses join-append
 
 // Internal (kind of)
 @import 'functions/cola-null-map-get'; // remove this or not?
@@ -32,13 +35,28 @@
 @import 'functions/cola-strip-unit';
 @import 'functions/cola-type-of'; // mod // rename to type? instead of type-of? // figure out whether to output nested lists as 'list' or not when using root
 
-// Contains
+// String
+@import 'functions/string/cola-str-nth'; // should be able to return multiple characters if a list of indexes is passed?
+// @import 'test/cola-str-nth';
+
+// Trim // needs some refactoring
+@import 'functions/trim/cola-trim-left';
+@import 'functions/trim/cola-trim-right';
+@import 'functions/trim/cola-trim';
+// @import 'test/trim/cola-trim-left-test';
+// @import 'test/trim/cola-trim-right-test';
+// @import 'test/trim/cola-trim-test';
+
+// Contains // rename contains to contain?
 @import 'functions/contains/cola-contains-and';
 @import 'functions/contains/cola-contains-any';
 @import 'functions/contains/cola-contains-only';
 @import 'functions/contains/cola-contains-type-and';  // cola-type-of
 @import 'functions/contains/cola-contains-type-any';  // cola-type-of
 @import 'functions/contains/cola-contains-type-only'; // cola-type-of
+// @import 'test/contains/cola-contains-and-test';
+// @import 'test/contains/cola-contains-any-test';
+// @import 'test/contains/cola-contains-only-test';
 
 @import 'functions/cola-map-get';       // mod // remove cola-combine or not?
 
@@ -48,10 +66,7 @@
 
 @import 'functions/cola-flatten-keys';
 
-@import '../../cart-sass/scss/main';
-// @import 'test/cola-contains-and-test';
-// @import 'test/cola-contains-any-test';
-// @import 'test/cola-contains-only-test';
+@import 'functions/cola-dash'; // make recursive // merge with combine function?
 
 // @import 'test/cola-map-get-test';
 
