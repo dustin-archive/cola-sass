@@ -1,0 +1,3 @@
+@function cola-trim($string, $value) {
+  @return cola-trim-right(cola-trim-left($string, $value), $value);
+}
