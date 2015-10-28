@@ -1,0 +1,8 @@
+$cola-str-nth-test: (
+  'cola-str-nth': (
+    test: cola-str-nth('hello', 5),
+    return: o
+  )
+);
+
+@debug cart($cola-str-nth-test);

@@ -1,0 +1,3 @@
+@function cola-str-nth($string, $index) {
+  @return str-slice($string, $index, $index);
+}
