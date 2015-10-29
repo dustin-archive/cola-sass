@@ -20,9 +20,6 @@
 @import 'functions/cola-longest-shortest'; // cola-null-map-get
 @import 'functions/cola-largest-smallest'; // cola-null-map-get
 
-// String data
-@import 'functions/cola-str-longest-shortest'; // cola-null-map-get
-
 // Recursive
 @import 'functions/cola-flatten'; // may need cola-join/cola-append
 @import 'functions/cola-reverse'; // may need cola-join/cola-append
@@ -36,6 +33,7 @@
 @import 'functions/cola-type-of'; // mod // rename to type? instead of type-of? // figure out whether to output nested lists as 'list' or not when using root
 
 // String
+@import 'functions/cola-str-longest-shortest'; // cola-null-map-get
 @import 'functions/string/cola-str-nth'; // should be able to return multiple characters if a list of indexes is passed?
 // @import 'test/cola-str-nth';
 
@@ -58,7 +56,7 @@
 // @import 'test/contains/cola-contains-any-test';
 // @import 'test/contains/cola-contains-only-test';
 
-@import 'functions/cola-map-get';       // mod // remove cola-combine or not?
+@import 'functions/cola-map-get'; // mod // remove cola-combine or not?
 
 //
 @import 'functions/cola-remove-nth'; // make recursive? // may need cola-join/cola-append
