@@ -2,7 +2,7 @@
   @if length($list) == 0 {
     @return $value;
   }
-  @else if length($value) == 0 {
+  @if length($value) == 0 {
     @return $list;
   }
 
