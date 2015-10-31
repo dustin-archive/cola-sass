@@ -37,14 +37,6 @@
 @import 'functions/string/cola-str-nth'; // should be able to return multiple characters if a list of indexes is passed?
 // @import 'test/cola-str-nth';
 
-// Trim // needs some refactoring
-@import 'functions/trim/cola-trim-left';
-@import 'functions/trim/cola-trim-right';
-@import 'functions/trim/cola-trim';
-// @import 'test/trim/cola-trim-left-test';
-// @import 'test/trim/cola-trim-right-test';
-// @import 'test/trim/cola-trim-test';
-
 // Contains // rename contains to contain?
 @import 'functions/contains/cola-contains-and';
 @import 'functions/contains/cola-contains-any';
