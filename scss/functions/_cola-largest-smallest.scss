@@ -47,6 +47,9 @@
 //   + this could also solve the problem of optional root-level only stuff?
 //     + i can't do this for all functions though
 
+// USE MAPS FOR THE COLON SYNTAX TO RETREIVE NESTED LISTS
+// 1:2:3 == 1: (2: 3) right?
+
 // (value: 2345, index: 3 2 2)
 // (value: 2345, index: (3 2 2) 7)
 // (value: -2, index: 1 4)
