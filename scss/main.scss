@@ -1,10 +1,6 @@
 // Testing
 @import '../../cart-sass/scss/main';
 
-// Utilities
-@import 'functions/utilities/cola-larger-smaller';
-@import 'functions/utilities/cola-longer-shorter';
-
 // Core
 @import 'functions/cola-get'; // could be simplified
 @import 'functions/cola-set'; // may need cola-join/cola-append
@@ -22,7 +18,6 @@
 // Recursive
 @import 'functions/cola-flatten'; // may need cola-join/cola-append
 @import 'functions/cola-reverse'; // may need cola-join/cola-append
-@import 'functions/cola-slice';   // may need cola-join/cola-append
 @import 'functions/cola-sum';
 
 @import 'functions/cola-process-list'; // remove cola-join or not?
@@ -32,7 +27,7 @@
 @import 'functions/cola-type-of'; // mod // rename to type? instead of type-of? // figure out whether to output nested lists as 'list' or not when using root
 
 // String
-@import 'functions/cola-str-longest-shortest'; // cola-null-map-get
+// @import 'functions/cola-str-longest-shortest'; // cola-null-map-get
 // @import 'functions/string/cola-str-nth'; // should be able to return multiple characters if a list of indexes is passed?
 // @import 'test/cola-str-nth';
 
@@ -55,9 +50,7 @@
 
 @import 'functions/cola-flatten-keys';
 
-@import 'functions/cola-dash'; // make recursive // merge with combine function?
-
-@import 'functions/cola-compress-values';
+// @import 'functions/cola-dash'; // make recursive // merge with combine function?
 
 // @import 'test/cola-map-get-test';
 
