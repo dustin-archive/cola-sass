@@ -1,6 +1,5 @@
-// Testing
+//
 @import '../../fizz-sass/scss/main';
-@import '../../cart-sass/scss/main';
 
 // Core
 @import 'functions/cola-get'; // could be simplified
@@ -52,12 +51,4 @@
 
 // @import 'functions/cola-dash'; // make recursive // merge with combine function?
 
-// @import 'test/cola-map-get-test';
-
-// @import 'test/cola-join-test';
-// @import 'test/cola-append-test';
-// @import 'test/cola-combine-test';
-
-// @import 'test/cola-type-of-test'; // failing tests
-
-// @import 'test/cola-get-test';
+// @import 'test/test';
