@@ -1,15 +1,15 @@
 @function cola-internal-type-of($value) {
-  $styles: 'none' 'hidden' 'dotted' 'dashed' 'solid' 'double' 'groove' 'ridge' 'inset' 'outset';
-  $lengths: 'px' 'em' 'rem' 'vw' 'vh' 'vmin' 'vmax' 'in' 'cm' 'mm' 'pt' 'pc' 'ex' 'ch';
-
   @if type-of($value) == 'string' {
-    @if index($styles, $value) {
+    @if type-property($value) {
+      @return 'property';
+    }
+    @else if type-style($value) {
       @return 'style';
     }
-    @else if index($lengths, $value) {
+    @else if type-length($value) {
       @return 'length';
     }
-    @else if str-index($value, '!') {
+    @else if type-flag($value) {
       @return 'flag';
     }
   }
