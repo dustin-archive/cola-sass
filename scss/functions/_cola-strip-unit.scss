@@ -1,9 +1,5 @@
-@function cola-internal-strip-unit($value) {
-  @return $value / (($value * 0) + 1);
-}
-
 @function cola-strip-unit($value, $root: null) {
-  @return cola-process-list('cola-internal-strip-unit', $value, $root);
+  @return cola-process-list('strip', $value, $root);
 }
 
 // 2
