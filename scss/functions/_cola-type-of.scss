@@ -1,25 +1,3 @@
-@function cola-internal-type-of($value) {
-  @if type-of($value) == 'string' {
-    @if type-property($value) {
-      @return 'property';
-    }
-    @else if type-style($value) {
-      @return 'style';
-    }
-    @else if type-length($value) {
-      @return 'length';
-    }
-    @else if type-flag($value) {
-      @return 'flag';
-    }
-  }
-  @else if type-of($value) == 'list' and length($value) == 1 {
-    @return type-of(nth($value, 1));
-  }
-
-  @return type-of($value);
-}
-
 @function cola-type-of($list, $root: null) {
-  @return cola-process-list('cola-internal-type-of', $list, $root);
+  @return cola-process-list('type', $list, $root);
 }
