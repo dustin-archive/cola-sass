@@ -2,7 +2,7 @@
   $result: ();
 
   @each $key in $keys {
-    $result: cola-combine($result, map-get($map, $key));
+    $result: combine($result, map-get($map, $key));
   }
 
   @return $result;
