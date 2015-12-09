@@ -30,17 +30,6 @@
 // @import 'functions/string/cola-str-nth'; // should be able to return multiple characters if a list of indexes is passed?
 // @import 'test/cola-str-nth';
 
-// Contains // rename contains to contain?
-@import 'functions/contains/cola-contains-and';
-@import 'functions/contains/cola-contains-any';
-@import 'functions/contains/cola-contains-only';
-@import 'functions/contains/cola-contains-type-and';  // cola-type-of
-@import 'functions/contains/cola-contains-type-any';  // cola-type-of
-@import 'functions/contains/cola-contains-type-only'; // cola-type-of
-// @import 'test/contains/cola-contains-and-test';
-// @import 'test/contains/cola-contains-any-test';
-// @import 'test/contains/cola-contains-only-test';
-
 @import 'functions/cola-map-get'; // mod // remove cola-combine or not?
 
 //
